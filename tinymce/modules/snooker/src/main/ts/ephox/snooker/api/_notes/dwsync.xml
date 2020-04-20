@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="CellMutations.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="CellNavigation.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="CellLocation.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="CopyRows.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="CopySelected.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="CellProperties.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="Main.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="OtherCells.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="Generators.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="ResizeWire.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="Sizes.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="ResizeDirection.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableContent.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableDirection.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="Structs.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableLookup.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableFill.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableGridSize.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TablePositions.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableRender.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableOperations.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+<file name="TableResize.ts" server="39.97.127.220" local="132295466680000000" remote="132316981200000000" Dst="0" />
+</dwsync>

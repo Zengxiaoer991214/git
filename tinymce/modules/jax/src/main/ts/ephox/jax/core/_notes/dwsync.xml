@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="BlobReader.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="DataType.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="Http.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="HttpError.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="HttpJwt.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="HttpData.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="JsonResponse.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="ResponseError.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="HttpTypes.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="ResponseSuccess.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+<file name="UrlBuilder.ts" server="39.97.127.220" local="132295466660000000" remote="132316973400000000" Dst="0" />
+</dwsync>

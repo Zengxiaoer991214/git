@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="ApproxStructure.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Arbitraries.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Assertions.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Chain.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="ChainSequence.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Clipboard.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Cursors.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Cleaner.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="FileInput.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="DragnDrop.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Files.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="GeneralSteps.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="FocusTools.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Generators.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Guard.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="GroupStore.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Keyboard.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Log.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Keys.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Logger.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Monitor.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Main.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Mouse.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="NamedChain.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Pipeline.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="PropertySteps.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="RealKeys.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="RealClipboard.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="RealMouse.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Step.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="StepSequence.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Touch.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="UiControls.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="TestLogs.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="Waiter.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+<file name="UiFinder.ts" server="39.97.127.220" local="132295466660000000" remote="132316965600000000" Dst="0" />
+</dwsync>

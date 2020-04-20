@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Classic editor</title>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="ckeditor5-build-classic/ckeditor.js"></script>
+</head>
+<body>	
+    <textarea id="TextArea1" cols="20" rows="2" class="ckeditor">hah</textarea>
+	<div id="editor"></div>
+    <script type="text/javascript">
+   ClassicEditor
+    .create( document.querySelector( '#editor' ),{
+		language: 'zh-cn',
+		toolbar: ["heading", "blockQuote", "imageUpload", "undo", "redo"]
+		})
+    .then( editor => {
+		window.editor = editor;
+		//加载适配器
+		editor.plugins.get('FileRepository').createUploadAdapter = (loader)=>{
+                return new UploadAdapter(loader);
+            };
+    })
+    .catch( error => {
+        console.error( error );
+    });
+
+class UploadAdapter {
+    constructor(loader) {
+        this.loader = loader;
+    }
+    upload() {
+        return new Promise((resolve, reject) => {
+            const data = new FormData();
+            data.append('upload', this.loader.file);
+            data.append('allowSize', 2);
+            $.ajax({
+                url: 'upload/upload.php?act=upload',
+                type: 'POST',
+                data: data,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data.res) {
+                        resolve({
+                            default: data.url
+                        });
+                    } else {
+                        reject(data.msg);
+                    }
+
+                }
+            });
+           
+        });
+    }
+    abort() {
+    }
+}
+
+</script>
+</body>
+</html>
