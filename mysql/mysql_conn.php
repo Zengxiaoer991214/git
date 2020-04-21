@@ -4,7 +4,7 @@
 
 	function show($conn){
 		//mysqli_query($conn,"SELECT * FROM article WHERE 1");
-		$result=mysqli_query($conn,"SELECT * FROM article ORDER BY a_id DESC");
+		$result=mysqli_query($conn,"SELECT * FROM article order by a_date desc");
 		if (!$result) {
     		printf("Error: %s\n", mysqli_error($conn));
     		exit();

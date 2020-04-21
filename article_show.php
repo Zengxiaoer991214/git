@@ -25,14 +25,12 @@
 <body>
 	<div class="container">
 		<div class="row">
-	<?php  require('menu/head.php');
-			require('mysql/mysql_conn.php');
-			$row2 = all_article($conn,$_GET['a_id']);
-			$row = $row2[0];
-			$result = $row2[1];
-			
-			//print_r($result)
-		?>
+			<?php  require('menu/head.php');
+				require('mysql/mysql_conn.php');
+				$row2 = all_article($conn,$_GET['a_id']);
+				$row = $row2[0];
+				$result = $row2[1];
+			?>
 			</div>
 		<div class="row" id="menu">
 			<div class="col m-4">
@@ -139,7 +137,7 @@
 								<div class="row">
 								<h3><?php echo $row_comments['c_author'];?> <small class="text-black-50"><?php echo $row_comments['c_date'];?> </small></h3>
 							 
-									<small style="position:absolute;right:10px;bottom:0;width: auto;height: auto;background-color: red">#<?php echo $index;?></small>
+									<small style="position:absolute;right:10px;top:10px;width: auto;height: auto;background-color: red">#<?php echo $index;?></small>
 								 
 								</div>
 								<div class="row">
@@ -154,20 +152,17 @@
 									</div>	
 								</div>
                             </div>
-						<?php }?>
-							
-							
+						<?php }?>			
 						</div>
 					</section>
-					<div class="row">
-								
-					
+					<div class="row">	
 					</div>
 				</div> 
-		</div>		<div id="222"></div>  
-				<?php require('menu/rightmenu.php');?> 		 
+		</div>		
+		<div id="222"></div>  
+			<?php require('menu/rightmenu.php');?> 		 
 		</div>
-		<script src="//at.alicdn.com/t/font_1759478_rdgqeho48b.js"></script>
+<script src="//at.alicdn.com/t/font_1759478_rdgqeho48b.js"></script>
 <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/hullabaloo.js"></script>
@@ -194,7 +189,7 @@
         var xhr, formData;
         xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
-        xhr.open('POST', '6.php');//第一个参数是请求方式，第二个参数是请求地址，我这里配置的是struts的action，如果是其他（PHP等）的可这样配置：xxx.php
+        xhr.open('POST', 'img_save.php');//第一个参数是请求方式，第二个参数是请求地址，我这里配置的是struts的action，如果是其他（PHP等）的可这样配置：xxx.php
         xhr.onload = function () {
             var json;
             if (xhr.status !== 200) {
@@ -268,16 +263,14 @@
 function like(id) {
 
   if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp2=new XMLHttpRequest();
-  } else { // code for IE6, IE5
+  } else { 
     xmlhttp2=new ActiveXObject("Microsoft.XMLHTTP");
   }
 	
 	var str = id.id;
 	var str_id1 = id.id+"1";
 	var str_id2 = id.id+"2";
-	//alert(str_id1);
 	if( document.getElementById(str_id1).href.baseVal=="#icondianzan"){
 		var color_love = "#icondianzan-copy";
 		var type = "add";
@@ -294,16 +287,10 @@ function like(id) {
 		var color_love = "#iconshoucang-copy";
 		var type = "sub";
 	}
-	// php  $_GET('str');
   	var a_id= $_GET['a_id'];
-	
 	url = "mysql/like_love.php?a_id="+a_id+"&kind="+str+"&type="+type;
-	//定义请求方式，url 。是否异步  a.text   111, .csv xml    ajax 、、异步 javascript 5.0 and xml（json）
-  	xmlhttp2.open("GET",url,true);                                   // ECMAscript 6.0
-	//发送请求                                                         //  typescript   
+  	xmlhttp2.open("GET",url,true);                                                                                         //  typescript   
   	xmlhttp2.send();
-	
-	//服务器返回
 	xmlhttp2.onreadystatechange=function() {
 	  
     if (this.readyState == 4 && this.status==200) {

@@ -39,25 +39,33 @@
 <body>
 <div class="container"> 
 	<div class="row">
-	<?php require('menu/head.php');?>
+		<?php require('menu/head.php');?>
 	</div>
-	<div class="row">
-	<div class="col">
-  <form method="post">
-	  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="输入你的文章标题">  
-    <textarea id="mytextarea2">Hello, World!</textarea>
-  </form>
+	<div class="row mt-4">
+		<div class="col ">
+  			<form method="post">
+	  			<input type="text" class="form-control" id="title" placeholder="输入你的文章标题">  
+    			<textarea id="mytextarea2" class="w-100">Hello, World!</textarea>
+  			</form>
+			<button class="btn" onclick="article_send()">提交</button>
+<div id="test"></div>
+
 		</div>
-	
-		<?php require_once('menu/rightmenu.php')?>
-		
-		
+
+		<?php require_once('menu/rightmenu.php'); ?>
 	</div>
 </div>	
-	<script src="tinymce/js/tinymce/tinymce.min.js"></script>
-	<script>
+<script src="//at.alicdn.com/t/font_1759478_rdgqeho48b.js"></script>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/hullabaloo.js"></script>
+
+<script src="tinymce/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script type="text/javascript" src="js/message_conf.js"></script>
+<script>
   tinymce.init({
-	  
+	  //???
     selector: 'textarea#mytextarea2',//意思是将TinyMCE插件放入‘textarea’ID为mytextarea的标签里
 	language: 'zh_CN',
     plugins: [ //配置插件：可自己随意选择，但如果是上传本地图片image和imagetools是必要的
@@ -68,25 +76,20 @@
  
 //工具框，也可自己随意配置
     toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image |  forecolor backcolor emoticons',  
-	  
     toolbar3: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image |  forecolor backcolor emoticons',  
-	  
     image_advtab: true,
     table_default_styles: {
         width: '50%',
-		height: '100%',	
+		height: '500px',	
         borderCollapse: 'collapse'
     },
     image_title: false, // 是否开启图片标题设置的选择，这里设置否
     automatic_uploads: true,
- // 图片异步上传处理函数
     images_upload_handler: (blobInfo, success, failure) => { 
         var xhr, formData;
- 
         xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
-        xhr.open('POST', '6.php');//第一个参数是请求方式，第二个参数是请求地址，我这里配置的是struts的action，如果是其他（PHP等）的可这样配置：xxx.php
- 
+        xhr.open('POST', 'img_save.php');
         xhr.onload = function () {
             var json;
             if (xhr.status !== 200) {
@@ -106,6 +109,62 @@
         xhr.send(formData);
     }
   });
+  var $_GET = (function(){
+    var url = window.document.location.href.toString(); //获取的完整url
+    var u = url.split("?");
+    if(typeof(u[1]) == "string"){
+        u = u[1].split("&");
+        var get = {};
+        for(var i in u){
+            var j = u[i].split("=");
+            get[j[0]] = j[1];
+        }
+        return get;
+    } else {
+        return {};
+    }
+})();
+
+  function article_send(){
+	str = tinyMCE.activeEditor.getContent();
+	var activeEditor = tinymce.activeEditor; 
+	var editBody = activeEditor.getBody(); 
+	activeEditor.selection.select(editBody); 
+	var text = activeEditor.selection.getContent( { 'format' : 'text' } );
+
+	var title = document.getElementById("title").value;
+	alert(title);
+	alert(text);
+		//alert(str);
+		if (window.XMLHttpRequest) {
+ 		   // code for IE7+, Firefox, Chrome, Opera, Safari
+ 		   xmlhttp=new XMLHttpRequest();
+ 		 }
+		else { // code for IE6, IE5
+ 		   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+ 		 }
+	alert(str);
+	//var a_id= $_GET['a_id'];
+	url = "mysql/article_save.php";
+  	xmlhttp.open("post",url,true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  	xmlhttp.send("article="+str+"&html="+text+"&title="+title);
+	
+	xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) { 
+		// setTimeout(function() {
+		//   $.hulla.send("文章发送成功！", "success");
+		// }, 1000);
+		alert("yes");
+		str2 = this.responseText;
+		document.getElementById("test").innerHTML = str2;
+		//location.href('index.php');
+		//
+    }
+	 
+  }
+	}
+
   </script>
 </body>
 </html>
