@@ -20,10 +20,15 @@
        overflow: hidden;
 		font-size: 2em;
     }
+		
+		#article img{
+			height: auto;
+			width: 100%;
+		}
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container justify-content-center w-100">
 		<div class="row">
 			<?php  require('menu/head.php');
 				require('mysql/mysql_conn.php');
@@ -32,7 +37,7 @@
 				$result = $row2[1];
 			?>
 			</div>
-		<div class="row" id="menu">
+		<div class="row justify-content-center" id="menu">
 			<div class="col m-4">
 				<div class="row"> 
 					<a onClick="window.location.href ='index.php'" href="#">
@@ -40,7 +45,7 @@
 					</a>
 				</div>
 				<div class="row">
-					<section class="border-bottom-1">
+					<section class="border-bottom-1 w-100">
 						<h2 class="text-left"><?php echo $row['a_title'];?></h2>
 						<small class="d-inline-block text-muted mt-2 ml-1">
        				 		<span class="mr-3">
@@ -54,37 +59,13 @@
        				 		</span>
     					</small>
 					</section>
-					 <section>
-						<?php echo $row['a_content'];
-						   echo $row['a_id'];
-						   echo $row['a_id'];
-						   echo $row['a_id'];
+					 <div class="row m-2 border-bottom" id="article">
+						<?php 
+						 echo $row['a_content'];
 						 ?>
-					</section>
-					<section id="changePost" class="mb-5 w-100">
-    					<div class="mr-auto w-100 text-warning border-bottom ">
-            				<a class="mr-auto font-weight-bold text-warning" href="article_show.php?a_id=<?php echo $row['a_id']-1;?>">
-                				<span class="icon mr-2 d-md-inline d-none">
-                    				<i class="iconfont">&#xe639;</i>
-                				</span>
-                				<span class="icon mr-2 d-md-none d-inline">
-                    				上一篇：
-                				</span>
-                				<?php echo $row2[2]['a_title'];?>
-            				</a>
-							&emsp;
-							&emsp;
-							&emsp;
-            				<a id="nextPost" class="font-weight-bold text-warning"  href="article_show.php?a_id=<?php echo $row['a_id']+1;?>">
-                				<span class="icon mr-2 d-md-none d-inline">
-                    				下一篇：
-                				</span>
-                				<?php echo $row2[3]['a_title'];?>
-                				<span class="icon ml-2 d-md-inline d-none">
-                    				<i class="iconfont" onClick="">&#xe638;</i>
-                				</span>
-            				</a>
-    					</div>
+					</div>
+					<section id="changePost" class="w-100" style="width: 100%">
+    	
 						 <!--- 点赞---   item.href=""                -->
 						<div class="row">
 						<div class="col">
@@ -94,9 +75,19 @@
 						<span id="a_likecount2" class="h4 text-black-50"><?php echo $row['a_likecount'];?></span>
 						 <!--- 收藏---->
  
-						 <svg class="icon" aria-hidden="true" onclick="like(this)" id='a_collect'>
-    							<use xlink:href="#iconshoucang-copy" id="a_collect1"></use>
+						 <svg class="icon" aria-hidden="true" onclick="like(this)" id='a_collect' name=<?php if($row2[2]['count']=="1")
+							  echo "1";
+							  else
+							echo "2";
+							  ?> >
+    							<use xlink:href="<?php if($row2[2]['count']>0)
+							  echo "#iconaixin";
+							  else
+							echo "#iconshoucang-copy";?>" id="a_collect1"></use>
 								</svg>
+							 
+							
+							
 						<span id="a_collect2" class="h4 text-black-50"><?php echo $row['a_collect'];?></span>
  						
 						 <svg class="icon" aria-hidden="true" onclick="comments_show()" id='a_comments'>
@@ -120,7 +111,7 @@
 							$result_comments = comment();
 							require('mysql/head_img.php');
 							$index = 0;
-											  		$result_head = head_img();
+								//$result_head = head_img();
 							while($row_comments = mysqli_fetch_array($result_comments)){
 								$index++;
 							?>
@@ -128,14 +119,14 @@
 								<div class="row m-2">
 								<div class="col-2" style = "width: 100px">
 									<img src="<?php  
-													echo $result_head[$row_comments['u_id']];
+													echo $row_comments['head_photo'];
 											  
 											  
 											  ?>" alt="..." class="img-thumbnail">
 								</div>
 								<div class="col">
 								<div class="row">
-								<h3><?php echo $row_comments['c_author'];?> <small class="text-black-50"><?php echo $row_comments['c_date'];?> </small></h3>
+								<h3><?php echo $row_comments['nickname'];?> <small class="text-black-50"><?php echo $row_comments['c_date'];?> </small></h3>
 							 
 									<small style="position:absolute;right:10px;top:10px;width: auto;height: auto;background-color: red">#<?php echo $index;?></small>
 								 
@@ -160,7 +151,9 @@
 				</div> 
 		</div>		
 		<div id="222"></div>  
-			<?php require('menu/rightmenu.php');?> 		 
+			<?php 
+				$u_id= $row['u_id'];
+			require('menu/rightmenu.php');?> 		 
 		</div>
 <script src="//at.alicdn.com/t/font_1759478_rdgqeho48b.js"></script>
 <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
@@ -229,6 +222,7 @@
 	
 	xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) { 
+		$.hulla = new hullabaloo();
 		setTimeout(function() {
 		  $.hulla.send("评论发送成功！", "success");
 		}, 1000);

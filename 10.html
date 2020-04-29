@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+ 
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+ 
+	<body>
+			<input type="file" id="file" name="file" />
+		 
+		<script>
+			var imgs = []; //存储图片链接
+			//为文件上传添加change事件
+			var fileM = document.querySelector("#file");
+			$("#file").on("change", function() {
+				console.log(fileM.files);
+				var fileObj = fileM.files[0];
+				var formData = new FormData();
+				formData.append('file', fileObj);
+				var ajax = new XMLHttpRequest();
+				ajax.open("POST", "mysql/article_save.php", true);
+				ajax.send(formData);
+				ajax.onreadystatechange = function() {
+					if(ajax.readyState == 4) {
+						if(ajax.status >= 200 && ajax.status < 300 || ajax.status == 304) {
+							console.log("上传成功");
+							var obj = JSON.parse(ajax.responseText);
+							console.log(obj.fileURL);
+						}
+					}
+				}
+			});
+		</script>
+		<div class="con"></div>
+	</body>
+ 
+</html>

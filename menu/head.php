@@ -8,7 +8,7 @@
 
 <body>
 <nav class="navbar navbar-expand-sm navbar-light bg-light md-2 w-100 ">
-  <a class="navbar-brand" href="#">主 页</a>
+  <a class="navbar-brand" href="index.php">主 页</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,18 +16,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" onClick="check_login(this)" id="<?php echo $_SESSION['id'];?>">个人中心<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="article_send.php">发帖子</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          默认排序
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="index.php">默认排序</a>
-			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="index.php?sort=a_comments">评论↓</a>
           	<a class="dropdown-item" href="index.php?sort=a_view">热度↓</a>
           	<a class="dropdown-item" href="index.php?sort=a_likecount">点赞↓</a>
         </div>
@@ -205,7 +204,16 @@
 		 else
 			return true;   
 	  }  
-		 
+		 function check_login(id){
+			 var data = id.id;
+			 if(data!="0"){
+				 window.location.href = "../user_init.php";
+			 }
+			 else{
+				 $.hulla = new hullabaloo();
+				 $.hulla.send("对不起，您尚未登录，请登录后重试","warning");
+			 }
+		 }
 		
 		function my_pswcheck2(){
 			$.hulla = new hullabaloo();

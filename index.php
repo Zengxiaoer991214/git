@@ -3,10 +3,8 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!--	<link rel="stylesheet" href="css/index.css">-->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="//code.z01.com/v4/dist/css/zico.min.css" >
+	<link rel="stylesheet" href="//code.z01.com/v4/dist/css/zico.min.css">
 	<title>Document</title>	
 	<style>
 		html::-webkit-scrollbar {
@@ -46,14 +44,14 @@
 				
 					
   				<div class="card">
-   				<img class="card-img-top p-2" src="<?php echo $row['a_headimg'];?>" alt="Card image cap">
+   				<img class="card-img-top p-2" onClick="location.href='article_show.php?a_id=<?php echo $row['a_id'];?>'" src="<?php echo $row['a_headimg'];?>" alt="Card image cap">
     			<div class="card-body">
       			<h4 class="card-title"><a  class="text-reset" href="article_show.php?a_id=<?php echo $row['a_id'];?>"><?php echo $row['a_title'];?></a></h4>
       			<p class="card-text"><?php echo $row['a_abstract'];?></p>
     			</div>
 					<footer class="blockquote-footer">
  				       <small class="text-muted">
- 				         <span class="h4"> <?php echo $row['a_author'];?></span><p class="text-right">------<?php echo $row['a_date'];?></p>
+ 				         <span class="h5"> <?php echo $row['nickname'];?></span><p class="text-right">------<?php echo $row['a_date'];?></p>
  				       </small>
  				     </footer>
   				</div>

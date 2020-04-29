@@ -30,7 +30,12 @@
 	}	
 	if($kind=="a_collect"){
 		$date = date("Y/m/d H:i:s");
+	if($type == "add"){
 		$sqll = "insert into user_collect (u_id,a_id,date) values ($u_id,$a_id,'$date')";
+	}
+	else{
+		$sqll = "delete FROM user_collect where u_id = $u_id and a_id = $a_id";
+	}	
 		//echo $sqll;
 		mysqli_query($conn,$sqll);
 		$sqlll ="update article set $kind = $kind $kinds where a_id = $a_id";
